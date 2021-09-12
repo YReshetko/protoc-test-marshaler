@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "github.com/YReshetko/protoc-gen-marshaler/proto/marshaler.proto";
+
+package test;
+option go_package = "github.com/YReshetko/protoc-test-marshaler/proto";
+
+// TestMessage test
+message TestMessage {
+  option (marshaler.enable) = true;
+  option (marshaler.some_string) = "value I would like to put here";
+
+  string StrField = 1;
+  bool BoolField = 2;
+  int32 IntField = 3;
+}
+/*
+service TestService {
+  rpc TestFun(TestMessage) returns (TestMessage);
+}
+*/
+
